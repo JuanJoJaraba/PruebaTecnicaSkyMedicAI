@@ -4,11 +4,12 @@ Este proyecto es una aplicación web para visualizar películas utilizando la AP
 
 ## Tecnologías Utilizadas
 
-- **Next.js**: Framework para aplicaciones React que proporciona renderizado del lado del servidor.
-- **JavaScript**: Lenguaje que añade tipado estático a JavaScript.
-- **shadcn**: Biblioteca de componentes UI para gestionar la interfaz de usuario.
-- **TMDb API**: API para obtener información sobre películas, géneros y configuraciones de idiomas.
-- **React**: Biblioteca para construir interfaces de usuario.
+- **Next.js:** Framework para aplicaciones React que proporciona renderizado del lado del servidor.
+- **JavaScript:** Lenguaje que añade tipado estático.
+- **Tailwind CSS:** Framework de diseño que proporciona clases utilitarias para crear interfaces responsivas y personalizadas.
+- **shadcn:** Biblioteca de componentes UI para gestionar la interfaz de usuario.
+- **TMDb API:** API para obtener información sobre películas, géneros y configuraciones de idiomas.
+- **React:** Biblioteca para construir interfaces de usuario.
 
 ## Instalación
 
