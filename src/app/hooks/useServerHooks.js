@@ -7,7 +7,6 @@ export const useServerMovies = async (language = 'en', page = 1) => {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTcxYzQ0MzMxY2NlYjQzODZmOGE3MTE0NzhlNGYyYyIsIm5iZiI6MTcyMzc2MDQ3NS4zOTcxNzgsInN1YiI6IjY2YmU3Y2ZmOWU0N2I1ZjM4Zjk3OWIzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UAZk2X_LjwUm_YSWNF_UypdoR8NR8ybWIVSbhuE2kn8'
             }
         });
-
         const data = await response.json();
         return data.results;
     } catch (error) {
@@ -25,7 +24,6 @@ export const useServerCategories = async () => {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTcxYzQ0MzMxY2NlYjQzODZmOGE3MTE0NzhlNGYyYyIsIm5iZiI6MTcyMzc2MDQ3NS4zOTcxNzgsInN1YiI6IjY2YmU3Y2ZmOWU0N2I1ZjM4Zjk3OWIzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UAZk2X_LjwUm_YSWNF_UypdoR8NR8ybWIVSbhuE2kn8'
             }
         });
-
         const data = await response.json();
         return data.genres;
     } catch (error) {
@@ -43,7 +41,6 @@ export const useServerLanguages = async () => {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTcxYzQ0MzMxY2NlYjQzODZmOGE3MTE0NzhlNGYyYyIsIm5iZiI6MTcyMzc2MDQ3NS4zOTcxNzgsInN1YiI6IjY2YmU3Y2ZmOWU0N2I1ZjM4Zjk3OWIzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UAZk2X_LjwUm_YSWNF_UypdoR8NR8ybWIVSbhuE2kn8'
             }
         });
-
         const data = await response.json();
         const filteredLanguages = data.filter(lang => lang.iso_639_1 === 'en' || lang.iso_639_1 === 'es');
         return filteredLanguages;
@@ -61,7 +58,6 @@ export async function fetchMovieDetails(movieId) {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTcxYzQ0MzMxY2NlYjQzODZmOGE3MTE0NzhlNGYyYyIsIm5iZiI6MTcyMzc2MDQ3NS4zOTcxNzgsInN1YiI6IjY2YmU3Y2ZmOWU0N2I1ZjM4Zjk3OWIzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UAZk2X_LjwUm_YSWNF_UypdoR8NR8ybWIVSbhuE2kn8'
         }
     });
-
     const data = await response.json();
     return data;
 }

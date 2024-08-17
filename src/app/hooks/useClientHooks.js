@@ -3,34 +3,31 @@ import { useServerMovies, useServerCategories, useServerLanguages, fetchMovieDet
 
 export const useClientMovies = (selectedLanguage, initialMovies = [], initialCategories = [], initialLanguages = []) => {
     const [movies, setMovies] = useState(initialMovies);
-    const [categories, setCategories] = useState(initialCategories);
-    const [languages, setLanguages] = useState(initialLanguages);
+    const [categories, setCategories] = useState(initialCategories || []);
+    const [languages, setLanguages] = useState(initialLanguages || []);
     const [page, setPage] = useState(1);
     const [movieDetails, setMovieDetails] = useState(null);
 
     const fetchMovies = async () => {
-        console.log('Fetching movies for language:', selectedLanguage); // Debugging line
         const fetchedMovies = await useServerMovies(selectedLanguage, page);
-        console.log('Fetched Movies:', fetchedMovies); // Debugging line
         setMovies((prevMovies) => [...prevMovies, ...fetchedMovies]);
     };
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            const fetchedCategories = await useServerCategories();
-            const fetchedLanguages = await useServerLanguages();
-            setCategories(fetchedCategories);
-            setLanguages(fetchedLanguages);
-        };
 
+    useEffect(() => {
         if (initialCategories.length === 0 || initialLanguages.length === 0) {
+            const fetchData = async () => {
+                const fetchedCategories = await useServerCategories();
+                const fetchedLanguages = await useServerLanguages();
+                setCategories(fetchedCategories || []);
+                setLanguages(fetchedLanguages || []);
+            };
             fetchData();
         }
-    }, [initialCategories.length, initialLanguages.length]);
+    }, [initialCategories, initialLanguages]);
 
     useEffect(() => {
         fetchMovies();
-    }, [page, selectedLanguage]); 
+    }, [page, selectedLanguage]);
 
     const loadMoreMovies = () => {
         setPage((prevPage) => prevPage + 1);

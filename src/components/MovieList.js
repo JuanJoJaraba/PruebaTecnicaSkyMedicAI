@@ -15,9 +15,9 @@ export default function MovieList({ initialMovies = [], initialCategories = [], 
     const [modalOpen, setModalOpen] = useState(false);
 
     const { movies, categories, languages, loadMoreMovies, loadMovieDetails, resetMovies } = useClientMovies(
-        selectedLanguage, 
-        initialMovies, 
-        initialCategories, 
+        selectedLanguage,
+        initialMovies,
+        initialCategories,
         initialLanguages
     );
 
@@ -49,7 +49,7 @@ export default function MovieList({ initialMovies = [], initialCategories = [], 
     const handleCardClick = (movie) => {
         setSelectedMovie(movie);
         setModalOpen(true);
-        loadMovieDetails(movie.id); 
+        loadMovieDetails(movie.id);
     };
 
     const closeModal = () => {
@@ -67,7 +67,7 @@ export default function MovieList({ initialMovies = [], initialCategories = [], 
                 <SearchBar
                     searchTerm={searchTerm}
                     onSearchChange={setSearchTerm}
-                    onSearchSubmit={() => {}}
+                    onSearchSubmit={() => { }}
                 />
             </div>
 
@@ -114,7 +114,11 @@ export default function MovieList({ initialMovies = [], initialCategories = [], 
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {filteredMovies.map((movie, index) => (
-                    <Card key={`${movie.id}-${index}`} className="rounded-lg shadow-lg bg-gray-800 text-white" onClick={() => handleCardClick(movie)}>
+                    <Card
+                        key={`${movie.id}-${index}`}
+                        className="rounded-lg shadow-lg bg-gray-900 bg-opacity-75 text-white transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                        onClick={() => handleCardClick(movie)}
+                    >
                         <CardHeader>
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -126,9 +130,6 @@ export default function MovieList({ initialMovies = [], initialCategories = [], 
                         <CardContent>
                             <p className="text-sm">{truncateText(movie.overview, 35)}</p>
                         </CardContent>
-                        <CardFooter className="text-blue-400">
-                            <span>Release Date: {movie.release_date}</span>
-                        </CardFooter>
                     </Card>
                 ))}
             </div>

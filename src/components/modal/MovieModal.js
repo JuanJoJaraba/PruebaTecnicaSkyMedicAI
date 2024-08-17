@@ -13,12 +13,11 @@ const MovieModal = ({ movie, isOpen, onClose, genres }) => {
         }).join(', ')
         : 'No category available';
 
-        return (
-            <Dialog open={isOpen} onOpenChange={onClose}>
-                <DialogContent className="max-w-md mx-auto bg-opacity-80 rounded-xl shadow-lg">
-                    <DialogHeader>
-                        <DialogTitle>{movie.title}</DialogTitle>
-                    </DialogHeader>
+    return (
+        <Dialog open={isOpen} onOpenChange={onClose}>
+            <DialogContent className="w-full max-w-lg max-h-[80vh] overflow-y-auto mx-auto bg-opacity-80 rounded-xl shadow-lg">
+                <DialogHeader>
+                    <DialogTitle>{movie.title}</DialogTitle>
                     <DialogDescription>
                         <div className="bg-white bg-opacity-80 rounded-lg p-4">
                             <img
@@ -26,34 +25,35 @@ const MovieModal = ({ movie, isOpen, onClose, genres }) => {
                                 alt={movie.title}
                                 className="w-48 mx-auto mb-4 rounded-lg shadow-md"
                             />
-                            <div className="mb-2">
+                            <p className="mb-2">
                                 <strong>Release Date:</strong> {movie.release_date}
-                            </div>
-                            <div className="mb-2">
+                            </p>
+                            <p className="mb-2">
                                 <strong>Category:</strong> {genreNames}
-                            </div>
-                            <div className="mb-4">
+                            </p>
+                            <p className="mb-4">
                                 <strong>Overview:</strong> {movie.overview}
-                            </div>
-                            <div className="mb-2">
+                            </p>
+                            <p className="mb-2">
                                 <strong>Popularity:</strong> {movie.popularity}
-                            </div>
-                            <div className="mb-2">
+                            </p>
+                            <p className="mb-2">
                                 <strong>Vote Average:</strong> {movie.vote_average}
-                            </div>
-                            <div className="mb-2">
+                            </p>
+                            <p className="mb-2">
                                 <strong>Vote Count:</strong> {movie.vote_count}
-                            </div>
+                            </p>
                         </div>
                     </DialogDescription>
-                    <DialogFooter>
-                        <button onClick={onClose} className="btn-primary">
-                            Close
-                        </button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
-        );
-    };
-    
-    export default MovieModal;
+                </DialogHeader>
+                <DialogFooter>
+                    <button onClick={onClose} className="btn-primary">
+                        Close
+                    </button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+export default MovieModal;
