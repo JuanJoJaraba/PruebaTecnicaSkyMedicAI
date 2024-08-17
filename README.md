@@ -26,7 +26,9 @@ Este proyecto es una aplicación web para visualizar películas utilizando la AP
 
 4. **Configura Variables de Entorno**
 
-   **Nota:** Esta configurado sin variables de entorno, para un uso más fácil y rápido.
+   1. Crea un archivo `.env` en la raíz del proyecto.
+   2. Copia el contenido de `.env.example` en tu archivo `.env`.
+   3. Reemplaza `your_tmdb_api_key_here` con tu bearer token de TMDb.
 
 5. **Ejecuta el Proyecto**
 
